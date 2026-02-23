@@ -35,7 +35,7 @@ interface EditorProps {
 }
 
 const Editor: React.FC<EditorProps> = ({ document }) => {
-  const liveblocks = useLiveblocksExtension();
+  const liveblocks = useLiveblocksExtension({initialContent: document?.content || "<p>Loading...</p>"});
   const { setEditor } = useEditorStore();
 
   const { leftMargin, rightMargin } = useMargin();
@@ -98,7 +98,7 @@ const Editor: React.FC<EditorProps> = ({ document }) => {
       Image,
       ImageResize,
     ],
-    content: document?.content || "<p>Loading...</p>",
+ //   content: document?.content || "<p>Loading...</p>",
   });
   return (
     <>
