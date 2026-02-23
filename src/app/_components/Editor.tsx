@@ -20,6 +20,7 @@ import ImageResize from "tiptap-extension-resize-image";
 import Underline from "@tiptap/extension-underline";
 import { Color } from "@tiptap/extension-color";
 import Highlight from "@tiptap/extension-highlight";
+import { Placeholder } from "@tiptap/extensions";
 import { useEditorStore, useMargin } from "@/store/editorStore";
 import { useLiveblocksExtension } from "@liveblocks/react-tiptap";
 import Ruler from "./Ruler";
@@ -35,7 +36,7 @@ interface EditorProps {
 }
 
 const Editor: React.FC<EditorProps> = ({ document }) => {
-  const liveblocks = useLiveblocksExtension({initialContent:`<p>${document?.content}</p>`});
+  const liveblocks = useLiveblocksExtension();
   const { setEditor } = useEditorStore();
 
   const { leftMargin, rightMargin } = useMargin();
@@ -97,6 +98,9 @@ const Editor: React.FC<EditorProps> = ({ document }) => {
       TableRow,
       Image,
       ImageResize,
+      Placeholder.configure({
+        placeholder: document?.content ? "" : "Start writing your document...",
+      })
     ],
  //   content: document?.content || "<p>Loading...</p>",
   });
