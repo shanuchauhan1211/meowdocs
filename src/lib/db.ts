@@ -21,8 +21,8 @@ export async function connectDB() {
     const opts = {
       bufferCommands: true,
       maxPoolSize: 10,
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
+    //  useNewUrlParser: true,
+    //  useUnifiedTopology: true,
     };
 
     cached.promise = mongoose
