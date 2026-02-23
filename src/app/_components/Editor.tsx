@@ -35,7 +35,7 @@ interface EditorProps {
 }
 
 const Editor: React.FC<EditorProps> = ({ document }) => {
-  const liveblocks = useLiveblocksExtension({initialContent: document?.content});
+  const liveblocks = useLiveblocksExtension({initialContent:`<p>${document?.content}</p>`});
   const { setEditor } = useEditorStore();
 
   const { leftMargin, rightMargin } = useMargin();
