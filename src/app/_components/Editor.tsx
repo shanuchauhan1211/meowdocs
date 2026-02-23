@@ -25,6 +25,7 @@ import { useEditorStore, useMargin } from "@/store/editorStore";
 import { useLiveblocksExtension } from "@liveblocks/react-tiptap";
 import Ruler from "./Ruler";
 import { Threads } from "./Threads";
+import { useEffect } from "react";
 
 interface EditorProps {
   document?: {
@@ -36,8 +37,13 @@ interface EditorProps {
 }
 
 const Editor: React.FC<EditorProps> = ({ document }) => {
+
+   useEffect(() => {
+    console.log("DOCUMENT DATA:", document);
+    console.log("DOCUMENT CONTENT:", document?.content);
+  }, [document]);
+
   const liveblocks = useLiveblocksExtension();
-  console.log("document in editor", document);
   const { setEditor } = useEditorStore();
 
   const { leftMargin, rightMargin } = useMargin();

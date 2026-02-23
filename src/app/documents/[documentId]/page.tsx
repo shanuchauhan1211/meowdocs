@@ -25,6 +25,9 @@ const DocumentIdPage = ({ params }: DocumentIdPageProps) => {
 
   useEffect(() => {
     if (document?.doc) {
+       console.log("FULL API RESPONSE:", document);
+    console.log("ACTUAL DOCUMENT:", document.doc);
+    console.log("DOCUMENT CONTENT:", document.doc.content);
       setCurrentDoc(document.doc);
       hydrateAuthState();
     }
