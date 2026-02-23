@@ -41,7 +41,7 @@ const Home = () => {
   }, [documents, setDocs]);
 
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="min-h-screen flex flex-col bg-slate-200">
       <div className="fixed top-0 right-0 left-0 z-20 px-5 h-[64px] bg-white">
         <Navbar />
       </div>
